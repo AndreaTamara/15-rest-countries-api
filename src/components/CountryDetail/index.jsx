@@ -53,11 +53,11 @@ export function CountryDetail() {
                         </div>
                         <div className="country-info-borders">
                             <p><strong>Border Countries:</strong></p>
-                            {/* {country.borders.map(el=>
+                            {country.borders.map(el=>
                                 
-                                <button onClick={()=>navigate('country/')}>{el}</button>
+                                <button onClick={()=>countryId=country.alpha3Code}>{el}</button>
                                 
-                            )} */}
+                            )} 
                             
                         
                         </div>
