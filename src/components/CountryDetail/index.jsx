@@ -1,18 +1,22 @@
 import './CountryDetail.css'
 import { useNavigate, useParams } from 'react-router-dom'
 import { useEffect, useState } from 'react';
-import { replace } from 'tar';
+
 
 export function CountryDetail() {
     const navigate= useNavigate();
-    const {countryId} = useParams();
+    let {countryId} = useParams();
     const [country,setCountry] = useState(null)
     console.log(countryId)
 
-    const url= 'https://restcountries.com/v2/alpha/'+countryId;
+    const urlBase= 'https://restcountries.com/v2/alpha/';
+
+    const getData=()=>{
+
+    }
 
     useEffect(()=>{
-        fetch(url)
+        fetch(urlBase+countryId)
         .then(res=>res.json())
         .then(data=>{
             setCountry(data)
@@ -55,7 +59,13 @@ export function CountryDetail() {
                             <p><strong>Border Countries:</strong></p>
                             {country.borders.map(el=>
                                 
-                                <button onClick={()=>countryId=country.alpha3Code}>{el}</button>
+                                <button key={country.numericCode}
+                                        onClick={(e)=>{
+                                            //navigate('country/:countryId')
+                                            //countryId=country.alpha3Code;
+                                            //console.log(countryId)
+                                
+                                }}>{el}</button>
                                 
                             )} 
                             

@@ -30,7 +30,7 @@ export function Countries() {
           {
             countries?.map((country)=>{
               return(
-                <Link to={'country/'+country.alpha3Code} key={country.numericCode} className='card-container'>
+                <Link to={'country/'+country.alpha3Code} key={country.name} className='card-container'>
                   <CardCountry 
                   flagUrl={country.flags.svg}
                   name ={country.name}
