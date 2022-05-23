@@ -11,17 +11,18 @@ export function CountryDetail() {
 
     const urlBase= 'https://restcountries.com/v2/alpha/';
 
-    const getData=()=>{
-
-    }
-
-    useEffect(()=>{
-        fetch(urlBase+countryId)
+    const getData=(a)=>{
+        fetch(urlBase+a)
         .then(res=>res.json())
         .then(data=>{
             setCountry(data)
           console.log(data)
         })
+    }
+
+    useEffect(()=>{
+       
+        getData(countryId)
        
       },[countryId])
 
@@ -59,10 +60,12 @@ export function CountryDetail() {
                             <p><strong>Border Countries:</strong></p>
                             {country.borders.map(el=>
                                 
-                                <button key={country.numericCode}
-                                        onClick={(e)=>{
-                                            //navigate('country/:countryId')
-                                            //countryId=country.alpha3Code;
+                                <button key={el}
+                                        onClick={()=>{
+                                            //console.log(el)
+                                            getData(el)
+                                            //navigate('country/'+el,{replace:true})
+                                            //countryId=el;
                                             //console.log(countryId)
                                 
                                 }}>{el}</button>

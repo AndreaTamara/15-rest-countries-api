@@ -1,5 +1,5 @@
 import { useEffect,useState } from 'react';
-import { Link, useParams } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { CardCountry } from '../CardCountry';
 import { NavBar } from '../NavBar';
 import './Countries.css'
@@ -37,6 +37,7 @@ export function Countries() {
                   population={country.population}
                   region ={country.region}
                   capital ={country.capital}
+                  //key={country.name+'card'}
                   />
               </Link>
               )
@@ -44,17 +45,7 @@ export function Countries() {
             })
           }
 
-          {/* <Link to='country'>
-            <CardCountry />
-          </Link>
           
-          <CardCountry />
-          <CardCountry />
-          <CardCountry />
-          <CardCountry />
-          <CardCountry />
-          <CardCountry />
-          <CardCountry /> */}
         </main>
         </>
     )
