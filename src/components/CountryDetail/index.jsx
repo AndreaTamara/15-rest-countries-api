@@ -32,7 +32,7 @@ export function CountryDetail() {
         <section>
             <button className='back-button' onClick={()=>navigate('/')}>Back</button>
             <main>
-                <div className="country-flag">flag img
+                <div className="country-flag">
                 <img src={country.flags.svg} alt={country.name+'flag'} />
                 </div>
                 <div className="country-info">
@@ -58,7 +58,7 @@ export function CountryDetail() {
                         </div>
                         <div className="country-info-borders">
                             <p><strong>Border Countries:</strong></p>
-                            {country.borders.map(el=>
+                            {country.borders?.map(el=>
                                 
                                 <button key={el}
                                         onClick={()=>{

@@ -17,8 +17,11 @@ main{
 }
 
 .country-flag{
-    width: 45%;
-    background-color: darkgray;
+    width: 50%;
+    
+}
+.country-flag img{
+    width: 100%;
 }
 
 .country-info{
