@@ -26,7 +26,7 @@ export function CountryDetail() {
        
       },[countryId])
 
-      if(!country){return <p>cargando...</p>}
+      if(!country){return <p style={{textAlign:'center'}}>cargando...</p>}
 
     return (
         <section>
@@ -63,8 +63,8 @@ export function CountryDetail() {
                                 <button key={el}
                                         onClick={()=>{
                                             //console.log(el)
-                                            getData(el)
-                                            //navigate('country/'+el,{replace:true})
+                                            //getData(el)
+                                            navigate('/country/'+el)
                                             //countryId=el;
                                             //console.log(countryId)
                                 
