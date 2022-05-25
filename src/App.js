@@ -14,7 +14,7 @@ function App() {
       <Routes>
         <Route path='/' element={<Countries/>} />
         <Route path='country/:countryId' element={<CountryDetail />} />
-        <Route path='*' element={<h1>not found</h1>}/>
+        <Route path='*' element={<h1 style={{textAlign:'center', lineHeight:'200px'}}>not found</h1>}/>
       </Routes>
       
     </div>

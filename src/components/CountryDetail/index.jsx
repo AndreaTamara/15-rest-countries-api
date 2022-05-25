@@ -1,6 +1,7 @@
 import './CountryDetail.css'
 import { useNavigate, useParams } from 'react-router-dom'
 import { useEffect, useState } from 'react';
+import { Button } from 'antd';
 
 
 export function CountryDetail() {
@@ -37,11 +38,11 @@ export function CountryDetail() {
 
     }, [countryId])
 
-    if (!country) { return <p style={{ textAlign: 'center' }}>cargando...</p> }
+    if (!country) { return <p style={{ textAlign: 'center',lineHeight:'200px' }}>cargando...</p> }
 
     return (
         <section>
-            <button className='back-button' onClick={() => navigate('/')}>Back</button>
+            <Button className='back-button' onClick={() => navigate('/')}>Back</Button>
             <main>
                 <div className="country-flag">
                     <img src={country.flags.svg} alt={country.name + 'flag'} />
@@ -73,8 +74,8 @@ export function CountryDetail() {
 
                                 //const nameRender = getData(el).then(res=>console.log(res))
                                 return (
-                                    <button key={el} onClick={() => { navigate('/country/' + el) }}
-                                    >{el}</button>
+                                    <Button key={el} onClick={() => { navigate('/country/' + el) }}
+                                    >{el}</Button>
                                 )
                                 })
                             }
