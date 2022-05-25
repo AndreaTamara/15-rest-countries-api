@@ -4,43 +4,47 @@ import { useEffect, useState } from 'react';
 
 
 export function CountryDetail() {
-    const navigate= useNavigate();
-    let {countryId} = useParams();
-    const [country,setCountry] = useState(null)
+    const navigate = useNavigate();
+    let { countryId } = useParams();
+    const [country, setCountry] = useState(null)
     console.log(countryId)
 
-    const urlBase= 'https://restcountries.com/v2/alpha/';
+    const urlBase = 'https://restcountries.com/v2/alpha/';
 
-    const getData=(a)=>{
-        return(
-            fetch(urlBase+a)
-            .then(res=>res.json())
-            .then((res)=> res)    
+    const getData = (a) => {
+        return (
+            fetch(urlBase + a)
+                .then(res => res.json())
+                .then((res) => res)
         )
-        
+
     }
 
-    useEffect(()=>{
-       
-        getData(countryId)
-        .then(
-            (res) => {
-            setCountry(res)
-            console.log(res)
-        })
-        
-        
-        
-      },[countryId])
+    // const createButton =(el,nameCountry)=>{
+    //     return(
+    //         <button key={el} onClick={()=>{navigate('/country/'+el)}}
+    //         >{nameCountry}</button>
+    // )}
 
-      if(!country){return <p style={{textAlign:'center'}}>cargando...</p>}
+    useEffect(() => {
+
+        getData(countryId)
+            .then(
+                (res) => {
+                    setCountry(res)
+                    console.log(res)
+                })
+
+    }, [countryId])
+
+    if (!country) { return <p style={{ textAlign: 'center' }}>cargando...</p> }
 
     return (
         <section>
-            <button className='back-button' onClick={()=>navigate('/')}>Back</button>
+            <button className='back-button' onClick={() => navigate('/')}>Back</button>
             <main>
                 <div className="country-flag">
-                <img src={country.flags.svg} alt={country.name+'flag'} />
+                    <img src={country.flags.svg} alt={country.name + 'flag'} />
                 </div>
                 <div className="country-info">
                     <h4 className="country-name">{country.name}</h4>
@@ -56,29 +60,26 @@ export function CountryDetail() {
                             <div className="country-details-2">
                                 <p className="country-data"><strong>Top Level Domain:</strong>{country.topLevelDomain}</p>
                                 <p className="country-data"><strong>Currencies:</strong>
-                                {country.currencies.map(el=>el.name).join(',')}
+                                    {country.currencies.map(el => el.name).join(',')}
                                 </p>
                                 <p className="country-data"><strong>Lenguages:</strong>
-                                {country.languages.map(el=>el.name).join(', ')}
+                                    {country.languages.map(el => el.name).join(', ')}
                                 </p>
                             </div>
                         </div>
                         <div className="country-info-borders">
                             <p><strong>Border Countries:</strong></p>
-                            {country.borders?.map(el=>
-                                
-                                <button 
-                                key={el}
-                                onClick={()=>{navigate('/country/'+el)}}
-                                >
-                                {
-                                     el
-                                }
-                                </button>
-                                
-                            )} 
-                            
-                        
+                            {country.borders?.map(el => {
+
+                                //const nameRender = getData(el).then(res=>console.log(res))
+                                return (
+                                    <button key={el} onClick={() => { navigate('/country/' + el) }}
+                                    >{el}</button>
+                                )
+                                })
+                            }
+
+
                         </div>
                     </div>
 
