@@ -7,9 +7,9 @@ export function CardCountry({flagUrl,name,population,region,capital}) {
             </div>
             <div className="card-country-info">
                 <h4 className="card-country-name">{name}</h4>
-                <p className="card-country-data"><strong>Population:</strong>{population}</p>
-                <p className="card-country-data"><strong>Region:</strong>{region}</p>
-                <p className="card-country-data"><strong>Capital:</strong>{capital}</p>
+                <p className="card-country-data"><strong>Population: </strong>{population}</p>
+                <p className="card-country-data"><strong>Region: </strong>{region}</p>
+                <p className="card-country-data"><strong>Capital: </strong>{capital}</p>
 
             </div>
         </div>

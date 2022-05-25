@@ -1,5 +1,6 @@
 import { useEffect,useState } from 'react';
 import { Link } from 'react-router-dom';
+import { getData } from '../../apiFetch';
 import { CardCountry } from '../CardCountry';
 import { NavBar } from '../NavBar';
 import './Countries.css'
@@ -12,12 +13,9 @@ export function Countries() {
 
   useEffect(()=>{
 
-    fetch('https://restcountries.com/v2/all')
-    .then(res=>res.json())
-    .then(data=>{
-      SetCountries(data);
-      //console.log(countries)
-    }
+    getData('all')
+    .then(data=>
+      SetCountries(data)
       )
    
   },[])
@@ -37,7 +35,6 @@ export function Countries() {
                   population={country.population}
                   region ={country.region}
                   capital ={country.capital}
-                  //key={country.name+'card'}
                   />
               </Link>
               )

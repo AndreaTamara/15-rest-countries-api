@@ -4,7 +4,7 @@ export function Header (){
     return(
         <header>
             <h1>Where in the world?</h1>
-            <div>Dark Mode</div>
+            <div className='switch-mode'><ion-icon name="moon-outline"></ion-icon>Dark Mode</div>
 
         </header>
     )
