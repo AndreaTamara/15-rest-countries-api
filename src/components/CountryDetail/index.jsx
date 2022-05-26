@@ -25,7 +25,7 @@ export function CountryDetail() {
         setIsLoading(true)
         getData('alpha/'+countryId)
             .then((res) =>{
-                setCountry(res)
+                setCountry(res[0])
                 setIsLoading(false)
             })
     }, [countryId])
@@ -41,26 +41,28 @@ export function CountryDetail() {
             </Button>
             <main>
                 <div className="country-flag">
-                    <img src={country.flags.svg} alt={country.name + 'flag'} />
+                    <img src={country.flags.svg} alt={country.name.official + 'flag'} />
                 </div>
                 <div className="country-info">
-                    <h4 className="country-name">{country.name}</h4>
+                    <h4 className="country-name">{country.name.common}</h4>
                     <div className="country-detail-info">
                         <div className="country-details">
                             <div className="country-details-1">
-                                <p className="country-data"><strong>Native Name: </strong>{country.nativeName}</p>
+                                <p className="country-data"><strong>Native Name: </strong>{country.name.nativeName[Object.keys(country.name.nativeName)[0]].official}</p>
                                 <p className="country-data"><strong>Population: </strong>{country.population}</p>
                                 <p className="country-data"><strong>Region: </strong>{country.region}</p>
                                 <p className="country-data"><strong>Sub Region: </strong>{country.subregion}</p>
-                                <p className="country-data"><strong>Capital: </strong>{country.capital}</p>
+                                <p className="country-data"><strong>Capital: </strong>{country.capital?country.capital[0]:""}</p>
                             </div>
                             <div className="country-details-2">
-                                <p className="country-data"><strong>Top Level Domain: </strong>{country.topLevelDomain}</p>
+                                <p className="country-data"><strong>Top Level Domain: </strong>{country.tld[0]}</p>
                                 <p className="country-data"><strong>Currencies: </strong>
-                                    {country.currencies.map(el => el.name).join(',')}
+                                    {[Object.values(country.currencies)][0]
+                                        .map(el => el.name).join(', ')}
                                 </p>
-                                <p className="country-data"><strong>Lenguages: </strong>
-                                    {country.languages.map(el => el.name).join(', ')}
+                                <p className="country-data"><strong>Languages: </strong>
+                                    {[Object.values(country.languages)]
+                                    .map(el => el).join(', ')}
                                 </p>
                             </div>
                         </div>

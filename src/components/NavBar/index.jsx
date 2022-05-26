@@ -45,7 +45,7 @@ export function NavBar() {
                 <Option value="africa">Africa</Option>
                 <Option value="america">America</Option>
                 <Option value="asia">Asia</Option>
-                <Option value="europa">Europa</Option>
+                <Option value="europe">Europe</Option>
                 <Option value="oceania">Oceania</Option>
             </Select>
 

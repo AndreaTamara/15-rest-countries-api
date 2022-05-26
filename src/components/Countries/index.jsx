@@ -23,9 +23,7 @@ export function Countries() {
     
     getData(searchedCountry?'name/'+searchedCountry:'all')
     .then(data=>{
-      console.log(data)
-      SetCountries(data);
-      
+      SetCountries(data); 
       setIsLoading(false)
     } )
    
@@ -33,7 +31,7 @@ export function Countries() {
 
   useEffect(()=>{
     
-    getData(searchedRegion?'continent/'+searchedRegion:'all')
+    getData(searchedRegion?'region/'+searchedRegion:'all')
     .then(data=>{
       SetCountries(data);
       setIsLoading(false)
@@ -49,13 +47,13 @@ export function Countries() {
           {
             countries?.map((country)=>{
               return(
-                <Link to={'country/'+country.alpha3Code} key={country.name} className='card-container'>
+                <Link to={'country/'+country.cca3} key={country.name.common} className='card-container'>
                   <CardCountry 
                   flagUrl={country.flags.svg}
-                  name ={country.name}
+                  name ={country.name.common}
                   population={country.population}
                   region ={country.region}
-                  capital ={country.capital}
+                  capital ={country.capital?country.capital[0]:""}
                   />
               </Link>
               )

@@ -1,4 +1,4 @@
-const baseUrl ='https://restcountries.com/v2/';
+const baseUrl ='https://restcountries.com/v3.1/';
 
 export function getData (path){
     
