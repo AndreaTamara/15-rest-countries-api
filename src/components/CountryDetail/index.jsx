@@ -57,8 +57,8 @@ export function CountryDetail() {
                             <div className="country-details-2">
                                 <p className="country-data"><strong>Top Level Domain: </strong>{country.tld[0]}</p>
                                 <p className="country-data"><strong>Currencies: </strong>
-                                    {[Object.values(country.currencies)][0]
-                                        .map(el => el.name).join(', ')}
+                                    {country.currencies?[Object.values(country.currencies)][0]
+                                        .map(el => el.name).join(', '):''}
                                 </p>
                                 <p className="country-data"><strong>Languages: </strong>
                                     {[Object.values(country.languages)]

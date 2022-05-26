@@ -1,8 +1,10 @@
 .filters{
     width: 100%;
     display: flex;
+    flex-wrap: wrap;
     padding: 20px 50px;
     justify-content: space-between;
+    gap:35px;
 }
 .ant-input{
     width: 35%;
@@ -30,4 +32,13 @@
 }
 .ant-select-show-search.ant-select:not(.ant-select-customize-input) .ant-select-selector{
     cursor: pointer;
+}
+
+@media (max-width:720px){
+    .filters{
+        padding: 15px;
+    }
+    .ant-input{
+        width: 100%;
+    }
 }

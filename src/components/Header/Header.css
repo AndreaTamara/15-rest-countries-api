@@ -6,17 +6,32 @@ header{
     align-items: center;
     background-color: hsl(0, 0%, 100%);
     border-bottom: 3px solid hsl(0, 0%, 95%);
+    box-shadow: 5px 0 5px 7px hsl(0, 0%, 95%) ;
     
 }
 
 h1{
     font-weight: 800;
     font-size: 28px;
+    margin-bottom: 0;
 }
 .switch-mode{
     display: flex;
-    gap:10px;
+    gap:6px;
     align-items: center;
     font-weight: 600;
     font-size: 16px;
+}
+@media (max-width:720px){
+
+    header{
+        padding: 15px;
+    }
+    h1{
+        font-size: 19px;
+    }
+    .switch-mode{
+        font-size: 14px;
+    }
+
 }

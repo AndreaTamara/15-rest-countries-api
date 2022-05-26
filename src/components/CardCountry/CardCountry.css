@@ -3,8 +3,9 @@
     box-shadow: 0 0 10px 2px hsl(0, 0%, 90%);
     display: flex;
     flex-direction: column;
+    justify-content: flex-start;
     border-radius: 5px;
-    height: 450px;
+    height: auto;
     width: 100%;
 }
 .card-country:hover{
@@ -12,20 +13,15 @@
 }
 .card-country-flag{
     width: 100%;
-    max-height: 210px;
-    display: flex;
-    align-items:flex-start;
-    
-
+    height: 210px;
+   
 }
 
 .card-country-flag img{
-   
+    height: auto;
     width: 100%;
     max-height:100%;
-    object-fit: fill;
-    
-    /*height: auto;*/
+    /*object-fit: fill;*/
     border-top-left-radius: 5px;
     border-top-right-radius: 5px;
     
@@ -34,10 +30,10 @@
 .card-country-info{
     display: flex;
     flex-direction: column;
-    padding: 25px 20px 45px 20px;
+    padding: 20px;
     font-size: 14px;
-    gap:7px;
-    max-height: 240px;
+    /* gap:7px; */
+    max-height: 50%;
 }
 .card-country-name{
     font-weight: 800;
