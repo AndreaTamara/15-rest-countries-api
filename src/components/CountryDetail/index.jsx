@@ -1,7 +1,7 @@
 import './CountryDetail.css'
 import { useNavigate, useParams } from 'react-router-dom'
 import { useEffect, useState } from 'react';
-import { Button } from 'antd';
+import { Button, Spin } from 'antd';
 import { ArrowLeftOutlined } from '@ant-design/icons';
 import { getData } from '../../apiFetch';
 
@@ -11,6 +11,7 @@ export function CountryDetail() {
     const navigate = useNavigate();
     const { countryId } = useParams();
     const [country, setCountry] = useState(null)
+    const [isLoading, setIsLoading] = useState(true)
     console.log(countryId)
 
 
@@ -21,14 +22,15 @@ export function CountryDetail() {
     // )}
 
     useEffect(() => {
-
+        setIsLoading(true)
         getData('alpha/'+countryId)
-            .then((res) =>
-                    setCountry(res)
-                )
+            .then((res) =>{
+                setCountry(res)
+                setIsLoading(false)
+            })
     }, [countryId])
 
-    if (!country) { return <p style={{ textAlign: 'center',lineHeight:'200px' }}>cargando...</p> }
+    if (isLoading)  return <div className='spinner'> <Spin size="large" /></div> 
 
     return (
         <section>

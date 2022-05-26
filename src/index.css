@@ -21,3 +21,10 @@ a{
 a:hover{
     color: unset;
 }
+.spinner{
+    width:100%;
+    min-height:100vh; 
+    display:flex;
+    justify-content:center; 
+    align-items:center; 
+}

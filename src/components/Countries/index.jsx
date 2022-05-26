@@ -3,24 +3,28 @@ import { Link } from 'react-router-dom';
 import { getData } from '../../apiFetch';
 import { CardCountry } from '../CardCountry';
 import { NavBar } from '../NavBar';
+import { Spin } from 'antd';
 import './Countries.css'
 
 export function Countries() {
 
   const [countries,SetCountries]= useState([])
-
+  const [isLoading, setIsLoading] = useState(true)
   
 
   useEffect(()=>{
-
+    setIsLoading(true)
     getData('all')
-    .then(data=>
-      SetCountries(data)
+    .then(data=>{
+      SetCountries(data);
+      setIsLoading(false)
+    }
+      
       )
    
   },[])
 
-
+  if (isLoading)  return <div className='spinner'> <Spin size="large" /></div> 
     return (
         <>
         <NavBar />
