@@ -7,7 +7,7 @@ import { Spin } from 'antd';
 import './Countries.css'
 
 
-export function Countries() {
+export function Countries({mode}) {
 
   const [countries,SetCountries]= useState([])
   const [isLoading, setIsLoading] = useState(true)
@@ -42,8 +42,8 @@ export function Countries() {
   if (isLoading)  return <div className='spinner'> <Spin size="large" /></div> 
     return (
         <>
-        <NavBar />
-        <main className='countries-grid'>
+        <NavBar mode={mode}/>
+        <main className='countries-grid' style={{backgroundColor:mode?'hsl(207, 26%, 17%)':''}}>
           {
             countries?.map((country)=>{
               return(

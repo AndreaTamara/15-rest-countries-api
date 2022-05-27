@@ -5,11 +5,11 @@ import './NavBar.css'
 const { Option } = Select;
 
 
-export function NavBar() {
+export function NavBar({mode}) {
     const [searchParams, setSearchParams] = useSearchParams();
 
     const searchCountry = searchParams.get('search'||'')
-    const searchRegion = searchParams.get('filter'||'')
+    //const searchRegion = searchParams.get('filter'||'')
 
     const handleInputChange = (e)=>{
         const searched=e.target.value.toLowerCase()
@@ -27,7 +27,7 @@ export function NavBar() {
       //console.log(searchRegion)
 
     return (
-        <nav className='filters'>
+        <nav className='filters' style={{backgroundColor:mode?'hsl(207, 26%, 17%)':''}}>
             <Input 
             placeholder="Search for a country..." 
             value={searchCountry}
@@ -36,7 +36,7 @@ export function NavBar() {
                 //showSearch
                 allowClear={true}
                 style={{width:'200px'}}
-                placeholder="Filter by Region"
+                placeholder='Filter by Region'
                 optionFilterProp="children"
                 onChange={handleFilter}
                 //onSearch={onSearch}
