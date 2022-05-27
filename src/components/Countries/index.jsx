@@ -11,8 +11,8 @@ export function Countries({mode}) {
 
   const [countries,SetCountries]= useState([])
   const [isLoading, setIsLoading] = useState(true)
-  const [searchParams, setSearchParams] = useSearchParams(useLocation().search);
-  const [filterParams, setfilterParams] = useSearchParams(useLocation().filter);
+  const [searchParams] = useSearchParams(useLocation().search);
+  const [filterParams] = useSearchParams(useLocation().filter);
   const searchedCountry = searchParams.get('search')
   const searchedRegion = filterParams.get('filter')
   console.log(searchedRegion)
@@ -39,7 +39,7 @@ export function Countries({mode}) {
    
   },[searchedRegion])
 
-  if (isLoading)  return <div className='spinner'> <Spin size="large" /></div> 
+  if (isLoading)  return <div className='spinner'style={{backgroundColor:mode?'hsl(207, 26%, 17%)':''}}> <Spin size="large" /></div> 
     return (
         <>
         <NavBar mode={mode}/>

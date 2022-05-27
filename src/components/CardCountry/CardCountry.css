@@ -13,7 +13,7 @@
 }
 .card-country-dark-mode{
     background-color: hsl(209, 23%, 22%);
-    box-shadow: unset; 
+    box-shadow: 0 0 10px 2px hsl(210, 26%, 13%);
 }
 .card-country-flag{
     width: 100%;
