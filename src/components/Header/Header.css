@@ -5,14 +5,13 @@ header{
     justify-content: space-between;
     align-items: center;
     background-color: hsl(0, 0%, 100%);
-    border-bottom: 3px solid hsl(0, 0%, 95%);
-    box-shadow: 5px 0 10px 5px hsl(0, 0%, 95%) ;
-    
+    border-bottom: 4px  solid hsl(0, 0%, 97%);
+   
 }
 .header-dark-mode{
     background-color: hsl(209, 23%, 22%);
     border-bottom: 3px solid hsl(207, 26%, 17%);
-    box-shadow: 5px 0 10px 5px hsl(207, 26%, 17%) ;
+    
 }
 
 h1{
@@ -29,6 +28,7 @@ h1{
     font-weight: 600;
     font-size: 16px;
     cursor: pointer;
+    fill:hsl(0, 0%, 100%);
 }
 @media (max-width:720px){
 

@@ -1,5 +1,6 @@
 section{
     width: 100%;
+    min-height: 100vh;
     padding: 60px;
     display: flex;
     flex-direction: column;
@@ -14,10 +15,13 @@ main{
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
+    gap:65px;
 }
 
 .country-flag{
-    width: 50%;
+    width: 660px;
+    flex:initial;
+    margin:auto;
     
 }
 .country-flag img{
@@ -25,11 +29,13 @@ main{
 }
 
 .country-info{
-    width: 45%;
+    width: 550px;
     padding: 30px 0;
     display: flex;
     flex-direction: column;
     gap:20px;
+    flex:initial;
+    margin:auto;
 }
 .country-name{
     font-size: 32px;
@@ -45,8 +51,9 @@ main{
 .country-details{
     width: 100%;
     display: flex;
+    justify-content: space-between;
     gap:10px;
-    /* flex-wrap: wrap; */
+    flex-wrap: wrap;
 }
 
 .country-details-1,
@@ -54,10 +61,17 @@ main{
     display: flex;
     flex-direction: column;
     gap:8px;
-    width: 50%;
+    
 }
 .country-info-borders{
     display: flex;
     flex-wrap: wrap;
     gap: 5px;
+}
+
+@media (max-width:720px){
+    section{
+        padding: 60px 20px 60px 20px;
+    }
+    
 }

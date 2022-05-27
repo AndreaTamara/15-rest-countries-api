@@ -29,11 +29,13 @@ export function NavBar({mode}) {
     return (
         <nav className='filters' style={{backgroundColor:mode?'hsl(207, 26%, 17%)':''}}>
             <Input 
+            className={mode?'input-dark-mode':''}
             placeholder="Search for a country..." 
             value={searchCountry}
             onChange={handleInputChange}/>
             <Select
                 //showSearch
+                className={mode?'select-dark-mode':''}
                 allowClear={true}
                 style={{width:'200px'}}
                 placeholder='Filter by Region'

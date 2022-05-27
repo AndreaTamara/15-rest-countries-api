@@ -1,12 +1,15 @@
 .countries-grid{
+    min-height: 100vh;
     display: grid;
     padding: 20px 50px 50px 50px;
     grid-template-columns: repeat(auto-fit, minmax(290px, 305px) );
     /* grid-template-columns: repeat(4, 1fr); */
-    grid-auto-rows: 1fr;
+    grid-auto-rows: minmax(290px, 407px);
     gap: 40px;
     align-content: space-around;
     justify-content: space-around;
+    align-content: space-between;
+    background-color:  hsl(0, 0%, 98%);
 }
 .card-container{
     display: flex;

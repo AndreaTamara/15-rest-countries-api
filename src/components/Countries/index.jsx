@@ -48,7 +48,8 @@ export function Countries({mode}) {
             countries?.map((country)=>{
               return(
                 <Link to={'country/'+country.cca3} key={country.name.common} className='card-container'>
-                  <CardCountry 
+                  <CardCountry
+                  mode={mode} 
                   flagUrl={country.flags.svg}
                   name ={country.name.common}
                   population={country.population}
