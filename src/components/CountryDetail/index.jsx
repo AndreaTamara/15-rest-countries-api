@@ -30,7 +30,7 @@ export function CountryDetail({mode}) {
             })
     }, [countryId])
 
-    if (isLoading)  return <div className='spinner'> <Spin size="large" /></div> 
+    if (isLoading)  return <div className='spinner'style={{ backgroundColor: mode ? 'hsl(207, 26%, 17%)' : '' }}> <Spin size="large" /></div> 
 
     return (
         <section style={{backgroundColor:mode?'hsl(207, 26%, 17%)':''}}>
