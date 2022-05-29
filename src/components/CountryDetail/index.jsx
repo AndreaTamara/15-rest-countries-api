@@ -3,7 +3,7 @@ import { useNavigate, useParams } from 'react-router-dom'
 import { useEffect, useState } from 'react';
 import { Button, Spin } from 'antd';
 import { ArrowLeftOutlined } from '@ant-design/icons';
-import { getData } from '../../apiFetch';
+import { getData } from '../../apiAxios';
 
 
 export function CountryDetail({mode}) {

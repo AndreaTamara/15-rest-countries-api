@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { Link, useLocation, useSearchParams } from 'react-router-dom';
-import { getData } from '../../apiFetch';
+import { getData } from '../../apiAxios';
 import { CardCountry } from '../CardCountry';
 import { Spin, notification } from 'antd';
 import './Countries.css'
