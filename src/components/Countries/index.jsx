@@ -3,10 +3,14 @@ import { Link, useLocation, useSearchParams } from 'react-router-dom';
 import { getData } from '../../apiAxios';
 import { CardCountry } from '../CardCountry';
 import { Spin, notification } from 'antd';
+import { useContext } from 'react'
+import ThemeContext from '../../context/ThemeContext'
 import './Countries.css'
 
 
-export function Countries({ mode }) {
+export function Countries() {
+  
+  const {darkMode}=useContext(ThemeContext)
 
   const [countries, SetCountries] = useState([])
   const [error, setError] = useState(null)
@@ -62,17 +66,16 @@ export function Countries({ mode }) {
       )
   }, [searchedRegion])
 
-  if (isLoading) return <div className='spinner' style={{ backgroundColor: mode ? 'hsl(207, 26%, 17%)' : '' }}> <Spin size="large" /></div>
+  if (isLoading) return <div className='spinner' style={{ backgroundColor: darkMode ? 'hsl(207, 26%, 17%)' : '' }}> <Spin size="large" /></div>
   
   return (
     <>
-      <main className='countries-grid' style={{ backgroundColor: mode ? 'hsl(207, 26%, 17%)' : '' }}>
+      <main className='countries-grid' style={{ backgroundColor: darkMode ? 'hsl(207, 26%, 17%)' : '' }}>
         {
           countries?.map((country) => {
             return (
               <Link to={'country/' + country.cca3} key={country.name.common} className='card-container'>
                 <CardCountry
-                  mode={mode}
                   flagUrl={country.flags.svg}
                   name={country.name.common}
                   population={country.population}

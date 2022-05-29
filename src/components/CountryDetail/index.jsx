@@ -4,14 +4,17 @@ import { useEffect, useState } from 'react';
 import { Button, Spin } from 'antd';
 import { ArrowLeftOutlined } from '@ant-design/icons';
 import { getData } from '../../apiAxios';
+import { useContext } from 'react'
+import ThemeContext from '../../context/ThemeContext'
 
 
-export function CountryDetail({mode}) {
+export function CountryDetail() {
 
     const navigate = useNavigate();
     const { countryId } = useParams();
     const [country, setCountry] = useState(null)
     const [isLoading, setIsLoading] = useState(true)
+    const {darkMode}=useContext(ThemeContext)
     console.log(countryId)
 
 
@@ -30,12 +33,12 @@ export function CountryDetail({mode}) {
             })
     }, [countryId])
 
-    if (isLoading)  return <div className='spinner'style={{ backgroundColor: mode ? 'hsl(207, 26%, 17%)' : '' }}> <Spin size="large" /></div> 
+    if (isLoading)  return <div className='spinner'style={{ backgroundColor: darkMode ? 'hsl(207, 26%, 17%)' : '' }}> <Spin size="large" /></div> 
 
     return (
-        <section style={{backgroundColor:mode?'hsl(207, 26%, 17%)':''}}>
+        <section style={{backgroundColor:darkMode?'hsl(207, 26%, 17%)':''}}>
             <Button 
-                className={`back-button ${mode?'button-dark-mode':''}`} 
+                className={`back-button ${darkMode?'button-dark-mode':''}`} 
                 onClick={() => navigate('/')}>
                     <ArrowLeftOutlined />Back
             </Button>
@@ -44,34 +47,34 @@ export function CountryDetail({mode}) {
                     <img src={country.flags.svg} alt={country.name.official + 'flag'} />
                 </div>
                 <div className="country-info">
-                    <h4 className={`country-name ${mode?'country-name-dark-mode':''}`}>{country.name.common}</h4>
+                    <h4 className={`country-name ${darkMode?'country-name-dark-mode':''}`}>{country.name.common}</h4>
                     <div className="country-detail-info">
                         <div className="country-details">
                             <div className="country-details-1">
-                                <p className={`country-data ${mode?'country-data-dark-mode':''}`}><strong>Native Name: </strong>{country.name.nativeName[Object.keys(country.name.nativeName)[0]].official}</p>
-                                <p className={`country-data ${mode?'country-data-dark-mode':''}`}><strong>Population: </strong>{country.population}</p>
-                                <p className={`country-data ${mode?'country-data-dark-mode':''}`}><strong>Region: </strong>{country.region}</p>
-                                <p className={`country-data ${mode?'country-data-dark-mode':''}`}><strong>Sub Region: </strong>{country.subregion}</p>
-                                <p className={`country-data ${mode?'country-data-dark-mode':''}`}><strong>Capital: </strong>{country.capital?country.capital[0]:""}</p>
+                                <p className={`country-data ${darkMode?'country-data-dark-mode':''}`}><strong>Native Name: </strong>{country.name.nativeName[Object.keys(country.name.nativeName)[0]].official}</p>
+                                <p className={`country-data ${darkMode?'country-data-dark-mode':''}`}><strong>Population: </strong>{country.population}</p>
+                                <p className={`country-data ${darkMode?'country-data-dark-mode':''}`}><strong>Region: </strong>{country.region}</p>
+                                <p className={`country-data ${darkMode?'country-data-dark-mode':''}`}><strong>Sub Region: </strong>{country.subregion}</p>
+                                <p className={`country-data ${darkMode?'country-data-dark-mode':''}`}><strong>Capital: </strong>{country.capital?country.capital[0]:""}</p>
                             </div>
                             <div className="country-details-2">
-                                <p className={`country-data ${mode?'country-data-dark-mode':''}`}><strong>Top Level Domain: </strong>{country.tld[0]}</p>
-                                <p className={`country-data ${mode?'country-data-dark-mode':''}`}><strong>Currencies: </strong>
+                                <p className={`country-data ${darkMode?'country-data-dark-mode':''}`}><strong>Top Level Domain: </strong>{country.tld[0]}</p>
+                                <p className={`country-data ${darkMode?'country-data-dark-mode':''}`}><strong>Currencies: </strong>
                                     {country.currencies?[Object.values(country.currencies)][0]
                                         .map(el => el.name).join(', '):''}
                                 </p>
-                                <p className={`country-data ${mode?'country-data-dark-mode':''}`}><strong>Languages: </strong>
+                                <p className={`country-data ${darkMode?'country-data-dark-mode':''}`}><strong>Languages: </strong>
                                     {[Object.values(country.languages)]
                                     .map(el => el).join(', ')}
                                 </p>
                             </div>
                         </div>
                         <div className="country-info-borders">
-                            <p className={`country-data ${mode?'country-data-dark-mode':''}`}><strong>Border Countries: </strong></p>
+                            <p className={`country-data ${darkMode?'country-data-dark-mode':''}`}><strong>Border Countries: </strong></p>
                             {country.borders?.map(el => {
                                 //const nameRender = getData(el).then(res=>console.log(res))
                                 return (
-                                    <Button className={mode?'button-dark-mode':''}
+                                    <Button className={darkMode?'button-dark-mode':''}
                                     key={el} 
                                     onClick={() => { navigate('/country/' + el) }}
                                     >{el}</Button>

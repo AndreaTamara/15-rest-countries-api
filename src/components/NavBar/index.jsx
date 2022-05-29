@@ -1,12 +1,15 @@
 import { Input, Select } from 'antd';
 import { useSearchParams } from 'react-router-dom';
 import './NavBar.css'
+import { useContext } from 'react'
+import ThemeContext from '../../context/ThemeContext'
 
 const { Option } = Select;
 
 
-export function NavBar({mode}) {
+export function NavBar() {
     const [searchParams, setSearchParams] = useSearchParams();
+    const {darkMode}=useContext(ThemeContext)
 
     const searchCountry = searchParams.get('search'||'')
     //const searchRegion = searchParams.get('filter'||'')
@@ -27,15 +30,15 @@ export function NavBar({mode}) {
       //console.log(searchRegion)
 
     return (
-        <nav className='filters' style={{backgroundColor:mode?'hsl(207, 26%, 17%)':''}}>
+        <nav className='filters' style={{backgroundColor:darkMode?'hsl(207, 26%, 17%)':''}}>
             <Input 
-            className={mode?'input-dark-mode':''}
+            className={darkMode?'input-dark-mode':''}
             placeholder="Search for a country..." 
             value={searchCountry}
             onChange={handleInputChange}/>
             <Select
                 //showSearch
-                className={mode?'select-dark-mode':''}
+                className={darkMode?'select-dark-mode':''}
                 allowClear={true}
                 style={{width:'200px'}}
                 placeholder='Filter by Region'
