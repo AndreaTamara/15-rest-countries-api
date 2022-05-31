@@ -20,20 +20,20 @@ export function Countries() {
   const searchedCountry = searchParams.get('search')
   const searchedRegion = filterParams.get('filter')
   
-  console.log({countries})
+  
 
   useEffect(() => {
     setIsLoading(true)
     setError(null)
     getData(searchedCountry ? 'name/' + searchedCountry : 'all')
       .then(data => {
-        //console.log(data)
+       
         SetCountries(data);
         setIsLoading(false)
         }
       )
       .catch(err => {
-        //console.log(err)
+        
         setIsLoading(false)
         setError(err.message)
       }
@@ -59,7 +59,7 @@ export function Countries() {
         SetCountries(data);
         setIsLoading(false)
       }).catch(err => {
-        //console.log(err)
+        
         setIsLoading(false)
         setError(err.message)
       }

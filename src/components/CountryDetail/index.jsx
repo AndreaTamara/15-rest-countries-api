@@ -15,14 +15,9 @@ export function CountryDetail() {
     const [country, setCountry] = useState(null)
     const [isLoading, setIsLoading] = useState(true)
     const {darkMode}=useContext(ThemeContext)
-    console.log(countryId)
-
-
-    // const createButton =(el,nameCountry)=>{
-    //     return(
-    //         <button key={el} onClick={()=>{navigate('/country/'+el)}}
-    //         >{nameCountry}</button>
-    // )}
+    const [borders,setBorders]=useState([])
+    // const [borderNames,setBorderNames]=useState(null)
+    
 
     useEffect(() => {
         setIsLoading(true)
@@ -30,11 +25,15 @@ export function CountryDetail() {
             .then((res) =>{
                 setCountry(res[0])
                 setIsLoading(false)
+                setBorders(res[0].borders)
+                
             })
+           
     }, [countryId])
 
+   
     if (isLoading)  return <div className='spinner'style={{ backgroundColor: darkMode ? 'hsl(207, 26%, 17%)' : '' }}> <Spin size="large" /></div> 
-
+    
     return (
         <section style={{backgroundColor:darkMode?'hsl(207, 26%, 17%)':''}}>
             <Button 
@@ -71,8 +70,7 @@ export function CountryDetail() {
                         </div>
                         <div className="country-info-borders">
                             <p className={`country-data ${darkMode?'country-data-dark-mode':''}`}><strong>Border Countries: </strong></p>
-                            {country.borders?.map(el => {
-                                //const nameRender = getData(el).then(res=>console.log(res))
+                            {borders?.map((el,i) => {          
                                 return (
                                     <Button className={darkMode?'button-dark-mode':''}
                                     key={el} 
@@ -81,7 +79,6 @@ export function CountryDetail() {
                                 )
                                 })
                             }
-
 
                         </div>
                     </div>
