@@ -1,11 +1,20 @@
-import './CountryDetail.css'
-import { useNavigate, useParams } from 'react-router-dom'
+//Estilos
+import './CountryDetail.css';
+
+//librerías
+import { useNavigate, useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
-import { Button, Spin, notification } from 'antd';
+import { Button, notification } from 'antd';
 import { ArrowLeftOutlined } from '@ant-design/icons';
+import { useContext } from 'react';
+
+//API
 import { getData } from '../../apiAxios';
-import { useContext } from 'react'
-import ThemeContext from '../../context/ThemeContext'
+
+//Contexto
+import ThemeContext from '../../context/ThemeContext';
+
+//Componentes
 import { Loading } from '../Loading';
 
 
@@ -46,7 +55,7 @@ export function CountryDetail() {
     }, [error])
 
 
-    if (isLoading) return <Loading/>
+    if (isLoading) return <Loading />
 
     if (country) {
         return (
@@ -61,30 +70,53 @@ export function CountryDetail() {
                         <img src={country.flags.svg} alt={country.name.official + 'flag'} />
                     </div>
                     <div className="country-info">
-                        <h4 className={`country-name ${darkMode ? 'country-name-dark-mode' : ''}`}>{country.name.common}</h4>
+                        <h4 className={`country-name ${darkMode ? 'country-name-dark-mode' : ''}`}>
+                            {country.name.common}
+                        </h4>
                         <div className="country-detail-info">
                             <div className="country-details">
                                 <div className="country-details-1">
-                                    <p className={`country-data ${darkMode ? 'country-data-dark-mode' : ''}`}><strong>Native Name: </strong>{country.name.nativeName[Object.keys(country.name.nativeName)[0]].official}</p>
-                                    <p className={`country-data ${darkMode ? 'country-data-dark-mode' : ''}`}><strong>Population: </strong>{country.population}</p>
-                                    <p className={`country-data ${darkMode ? 'country-data-dark-mode' : ''}`}><strong>Region: </strong>{country.region}</p>
-                                    <p className={`country-data ${darkMode ? 'country-data-dark-mode' : ''}`}><strong>Sub Region: </strong>{country.subregion}</p>
-                                    <p className={`country-data ${darkMode ? 'country-data-dark-mode' : ''}`}><strong>Capital: </strong>{country.capital ? country.capital[0] : ""}</p>
+                                    <p className={`country-data ${darkMode ? 'country-data-dark-mode' : ''}`}>
+                                        <strong>Native Name: </strong>
+                                        {country.name.nativeName[Object.keys(country.name.nativeName)[0]].official}
+                                    </p>
+                                    <p className={`country-data ${darkMode ? 'country-data-dark-mode' : ''}`}>
+                                        <strong>Population: </strong>
+                                        {country.population}
+                                    </p>
+                                    <p className={`country-data ${darkMode ? 'country-data-dark-mode' : ''}`}>
+                                        <strong>Region: </strong>
+                                        {country.region}
+                                    </p>
+                                    <p className={`country-data ${darkMode ? 'country-data-dark-mode' : ''}`}>
+                                        <strong>Sub Region: </strong>
+                                        {country.subregion}
+                                    </p>
+                                    <p className={`country-data ${darkMode ? 'country-data-dark-mode' : ''}`}>
+                                        <strong>Capital: </strong>
+                                        {country.capital ? country.capital[0] : ""}
+                                    </p>
                                 </div>
                                 <div className="country-details-2">
-                                    <p className={`country-data ${darkMode ? 'country-data-dark-mode' : ''}`}><strong>Top Level Domain: </strong>{country.tld[0]}</p>
-                                    <p className={`country-data ${darkMode ? 'country-data-dark-mode' : ''}`}><strong>Currencies: </strong>
+                                    <p className={`country-data ${darkMode ? 'country-data-dark-mode' : ''}`}>
+                                        <strong>Top Level Domain: </strong>
+                                        {country.tld[0]}
+                                    </p>
+                                    <p className={`country-data ${darkMode ? 'country-data-dark-mode' : ''}`}>
+                                        <strong>Currencies: </strong>
                                         {country.currencies ? [Object.values(country.currencies)][0]
                                             .map(el => el.name).join(', ') : ''}
                                     </p>
-                                    <p className={`country-data ${darkMode ? 'country-data-dark-mode' : ''}`}><strong>Languages: </strong>
+                                    <p className={`country-data ${darkMode ? 'country-data-dark-mode' : ''}`}>
+                                        <strong>Languages: </strong>
                                         {[Object.values(country.languages)]
                                             .map(el => el).join(', ')}
                                     </p>
                                 </div>
                             </div>
                             <div className="country-info-borders">
-                                <p className={`country-data ${darkMode ? 'country-data-dark-mode' : ''}`}><strong>Border Countries: </strong></p>
+                                <p className={`country-data ${darkMode ? 'country-data-dark-mode' : ''}`}>
+                                    <strong>Border Countries: </strong></p>
                                 {borders?.map((el, i) => {
                                     return (
                                         <Button className={darkMode ? 'button-dark-mode' : ''}
@@ -105,13 +137,15 @@ export function CountryDetail() {
             </section>
         )
     }
-    else{
-        return(
-            <Button
+    else {
+        return (
+            <section style={{ backgroundColor: darkMode ? 'hsl(207, 26%, 17%)' : '' }}>
+                <Button
                     className={`back-button ${darkMode ? 'button-dark-mode' : ''}`}
                     onClick={() => navigate('/')}>
                     <ArrowLeftOutlined />Back
                 </Button>
+            </section>
         )
     }
 }
