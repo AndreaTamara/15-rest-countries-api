@@ -47,7 +47,7 @@ export function NavBar() {
                 //onSearch={onSearch}
                 //filterOption={(input, option) => option.children.toLowerCase().includes(input.toLowerCase())}
             >
-                <Option value="africa">Africa</Option>
+                <Option  className='select-dark-mode-option'value="africa">Africa</Option>
                 <Option value="america">America</Option>
                 <Option value="asia">Asia</Option>
                 <Option value="europe">Europe</Option>
