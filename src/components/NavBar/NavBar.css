@@ -7,6 +7,7 @@
     gap:35px;
     background-color:  hsl(0, 0%, 98%);
 }
+/* INPUNT ANT DESING*/
 .ant-input{
     width: 35% !important;
     padding: 10px 20px!important;
@@ -25,7 +26,7 @@
     color:hsl(0, 0%, 100%)!important;
 }
 
-/*SELECTOR*/
+/*SELECTOR ANT DESING*/
 .ant-select:not(.ant-select-customize-input) .ant-select-selector{
     border-radius: 5px!important;
     transition: none!important;
