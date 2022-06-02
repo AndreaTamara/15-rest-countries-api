@@ -1,0 +1,19 @@
+.not-found{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    min-height: 100vh;
+}
+
+.ant-result-title{
+    font-size: 30px;
+}
+
+.ant-result-subtitle{
+    font-size: 20px;
+}
+
+.msn-dark-mode .ant-result-title,.msn-dark-mode .ant-result-subtitle {
+    color:hsl(0, 0%, 100%);
+}

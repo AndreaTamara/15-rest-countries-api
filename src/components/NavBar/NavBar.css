@@ -8,75 +8,91 @@
     background-color:  hsl(0, 0%, 98%);
 }
 .ant-input{
-    width: 35%;
-    padding: 10px 20px;
-    font-size: 16px;
-    font-weight: 600;
-    border-radius: 5px;
-    border:0;
-    background-color: hsl(0, 0%, 100%);
-    box-shadow: 0 0 10px 2px hsl(0, 0%, 90%);
-    color:hsl(0, 0%, 52%);
+    width: 35% !important;
+    padding: 10px 20px!important;
+    font-size: 16px!important;
+    font-weight: 600!important;
+    border-radius: 5px!important;
+    border:0!important;
+    background-color: hsl(0, 0%, 100%)!important;
+    box-shadow: 0 0 10px 2px hsl(0, 0%, 90%)!important;
+    color:hsl(0, 0%, 52%)!important;
+    transition: none!important;
 }
 .input-dark-mode{
-    background-color: hsl(209, 23%, 22%);
-    box-shadow: 0 0 10px 2px hsl(210, 26%, 13%);
-    color:hsl(0, 0%, 100%);
+    background-color: hsl(209, 23%, 22%)!important;
+    box-shadow: 0 0 10px 2px hsl(210, 26%, 13%)!important;
+    color:hsl(0, 0%, 100%)!important;
 }
 
 /*SELECTOR*/
 .ant-select:not(.ant-select-customize-input) .ant-select-selector{
-    border-radius: 5px;
+    border-radius: 5px!important;
+    transition: none!important;
 }
 .ant-select-single:not(.ant-select-customize-input) .ant-select-selector{
-    height: 50.28px;
-    cursor: pointer;
-    background-color: hsl(0, 0%, 100%);
-    border:0;
-    box-shadow: 0 0 10px 2px hsl(0, 0%, 90%);
+    height: 50.28px!important;
+    cursor: pointer!important;
+    background-color: hsl(0, 0%, 100%)!important;
+    border:0!important;
+    box-shadow: 0 0 10px 2px hsl(0, 0%, 90%)!important;
 }
 .select-dark-mode.ant-select-single:not(.ant-select-customize-input) .ant-select-selector{
-    background-color: hsl(209, 23%, 22%);
-    box-shadow: 0 0 10px 2px hsl(210, 26%, 13%);
-
+    background-color: hsl(209, 23%, 22%)!important;
+    box-shadow: 0 0 10px 2px hsl(210, 26%, 13%)!important;
 }
 
 .ant-select-single .ant-select-selector{
-    align-items: center;
+    align-items: center!important;
 }
 .ant-select{  
-    font-size: 16px;
-    color:hsl(200, 15%, 8%);
+    font-size: 16px!important;
+    color:hsl(200, 15%, 8%)!important;
 }
 
 
-
-.ant-select-show-search.ant-select:not(.ant-select-customize-input) .ant-select-selector input,
-.ant-select-show-search.ant-select:not(.ant-select-customize-input) .ant-select-selector
+.ant-select-show-search .ant-select:not(.ant-select-customize-input) .ant-select-selector input,
+.ant-select-show-search .ant-select:not(.ant-select-customize-input) .ant-select-selector
 {
-    cursor: pointer;
+    cursor: pointer!important;
+    transition: none!important;
 }
 
-.ant-select-selection-placeholder{
+.ant-select-selector .ant-select-selection-placeholder{
     color:hsl(200, 15%, 8%);
     font-weight: 600;
 }
 .ant-select-arrow{
     color:hsl(200, 15%, 8%);
 }
+.select-dark-mode .ant-select-arrow{
+    color:hsl(0, 0%, 100%);
+}
 .select-dark-mode .ant-select-selector .ant-select-selection-placeholder{    
-    color:hsl(0, 0%, 100%) !important;
+    color:hsl(0, 0%, 100%) ;
 }
 
-.select-dark-mode .ant-select-selector{
-    background-color: hsl(209, 23%, 22%)!important;
-    color:hsl(0, 0%, 100%)!important;
+ .ant-select-dropdown{
+    background-color: unset !important;
+    box-shadow: unset!important;
 }
-.select-dark-mode-option{
+.option-dark-mode.ant-select-item-option-active:not(.ant-select-item-option-disabled){
     background-color: hsl(209, 23%, 22%)!important;
-    color:hsl(0, 0%, 100%)!important;
 }
 
+.ant-select-item{
+    background-color:hsl(0, 0%, 100%)!important;
+}
+.option-dark-mode{
+    background-color: hsl(209, 23%, 22%)!important;
+    color:hsl(0, 0%, 100%)!important;
+} 
+.ant-select-item-option-active:not(.ant-select-item-option-disabled){
+    background-color: hsl(0, 0%, 94%)!important;
+}
+.option-dark-mode.ant-select-item-option-active:not(.ant-select-item-option-disabled){
+    background-color: hsl(209, 23%, 25%)!important;
+}
 
 
 @media (max-width:720px){
@@ -84,6 +100,6 @@
         padding: 15px;
     }
     .ant-input{
-        width: 100%;
+        width: 100% !important;
     }
 }

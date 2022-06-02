@@ -78,17 +78,18 @@ main{
 }
 
 .ant-btn{
-    border:0;
-    box-shadow: 0 0 10px 2px hsl(0, 0%, 90%);
-    color:hsl(200, 15%, 8%);
-    border-radius: 5px;
-    background-color: hsl(0, 0%, 100%);
+    border:0 !important;
+    box-shadow: 0 0 10px 2px hsl(0, 0%, 90%)!important;
+    color:hsl(200, 15%, 8%)!important;
+    border-radius: 5px!important;
+    background-color: hsl(0, 0%, 100%)!important;
+    transition: none!important;
 }
 
 .button-dark-mode.ant-btn{
-    box-shadow: 0 0 10px 2px hsl(210, 26%, 13%);
-    color:hsl(0, 0%, 100%);
-    background-color: hsl(209, 23%, 22%);
+    box-shadow: 0 0 10px 2px hsl(210, 26%, 13%)!important;
+    color:hsl(0, 0%, 100%)!important;
+    background-color: hsl(209, 23%, 22%)!important;
 }
 
 @media (max-width:720px){

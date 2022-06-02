@@ -6,6 +6,7 @@ import { Spin, notification } from 'antd';
 import { useContext } from 'react'
 import ThemeContext from '../../context/ThemeContext'
 import './Countries.css'
+import { Loading } from '../Loading';
 
 
 export function Countries() {
@@ -66,7 +67,7 @@ export function Countries() {
       )
   }, [searchedRegion])
 
-  if (isLoading) return <div className='spinner' style={{ backgroundColor: darkMode ? 'hsl(207, 26%, 17%)' : '' }}> <Spin size="large" /></div>
+  if (isLoading) return <Loading/>
   
   return (
     <>

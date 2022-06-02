@@ -12,8 +12,7 @@ export function NavBar() {
     const {darkMode}=useContext(ThemeContext)
 
     const searchCountry = searchParams.get('search'||'')
-    //const searchRegion = searchParams.get('filter'||'')
-
+  
     const handleInputChange = (e)=>{
         const searched=e.target.value.toLowerCase()
         if(searched){setSearchParams({search:searched})}
@@ -26,9 +25,7 @@ export function NavBar() {
         else{setSearchParams({filter:''})}
       };
     
-      //console.log(searchCountry)
-      //console.log(searchRegion)
-
+      
     return (
         <nav className='filters' style={{backgroundColor:darkMode?'hsl(207, 26%, 17%)':''}}>
             <Input 
@@ -47,11 +44,11 @@ export function NavBar() {
                 //onSearch={onSearch}
                 //filterOption={(input, option) => option.children.toLowerCase().includes(input.toLowerCase())}
             >
-                <Option  className='select-dark-mode-option'value="africa">Africa</Option>
-                <Option value="america">America</Option>
-                <Option value="asia">Asia</Option>
-                <Option value="europe">Europe</Option>
-                <Option value="oceania">Oceania</Option>
+                <Option className={darkMode?'option-dark-mode':''}value="africa">Africa</Option>
+                <Option className={darkMode?'option-dark-mode':''} value="america">America</Option>
+                <Option className={darkMode?'option-dark-mode':''} value="asia">Asia</Option>
+                <Option className={darkMode?'option-dark-mode':''} value="europe">Europe</Option>
+                <Option className={darkMode?'option-dark-mode':''} value="oceania">Oceania</Option>
             </Select>
 
         </nav>
