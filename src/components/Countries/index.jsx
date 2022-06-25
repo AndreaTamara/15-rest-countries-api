@@ -80,7 +80,7 @@ export function Countries() {
         {
           countries?.map((country) => {
             return (
-              <Link to={'country/' + country.cca3} key={country.name.common} className='card-container'>
+              <Link to={'country/' + country.name.common} key={country.name.common} className='card-container'>
                 <CardCountry
                   flagUrl={country.flags.svg}
                   name={country.name.common}

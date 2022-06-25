@@ -31,11 +31,10 @@ export function CountryDetail() {
 
     useEffect(() => {
         setIsLoading(true)
-        getData('alpha/' + countryId)
+        getData('name/' + countryId + '?fullText=true')
             .then((res) => {
                 setCountry(res[0])
                 setIsLoading(false)
-                console.log(res[0].borders)
             }).catch(err => {
                 setIsLoading(false)
                 setError(err.message)
@@ -59,11 +58,9 @@ export function CountryDetail() {
            const newArray=[...newBorderNames]
            newArray.push(el)
            newBorderNames=newArray
-           console.log ('estoy en setName')
-           console.log(newBorderNames)
            setBorderNames(newBorderNames)
         }
-        console.log(country.borders)
+        
          country.borders?.map(el=>
             getData('alpha/' + el)
             .then(res=>res[0].name.common)
@@ -117,7 +114,7 @@ export function CountryDetail() {
                                 <div className="country-details-2">
                                     <p className={`country-data ${darkMode ? 'country-data-dark-mode' : ''}`}>
                                         <strong>Top Level Domain: </strong>
-                                        {country.tld[0]}
+                                        {country.tld?country.tld[0]:''}
                                     </p>
                                     <p className={`country-data ${darkMode ? 'country-data-dark-mode' : ''}`}>
                                         <strong>Currencies: </strong>
@@ -138,7 +135,7 @@ export function CountryDetail() {
                                     return (
                                         <Button className={darkMode ? 'button-dark-mode' : ''}
                                             key={el}
-                                            onClick={() => { navigate('/country/' + country.borders[i]) }}
+                                            onClick={() => { navigate('/country/' + el) }}
                                         >{el}</Button>
                                     )
                                 })
