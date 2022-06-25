@@ -22,12 +22,11 @@ export function CountryDetail() {
 
     const navigate = useNavigate();
     const { countryId } = useParams();
-    const [country, setCountry] = useState(null)
+    const [country, setCountry] = useState([])
     const [isLoading, setIsLoading] = useState(true)
     const { darkMode } = useContext(ThemeContext)
-    const [borders, setBorders] = useState([])
     const [error, setError] = useState(null)
-    // const [borderNames,setBorderNames]=useState(null)
+    const [borderNames,setBorderNames]=useState(null)
 
 
     useEffect(() => {
@@ -36,7 +35,7 @@ export function CountryDetail() {
             .then((res) => {
                 setCountry(res[0])
                 setIsLoading(false)
-                setBorders(res[0].borders)
+                console.log(res[0].borders)
             }).catch(err => {
                 setIsLoading(false)
                 setError(err.message)
@@ -53,6 +52,24 @@ export function CountryDetail() {
             });
         }
     }, [error])
+
+     useEffect(()=>{
+        let newBorderNames = []
+        const setName=(el)=>{
+           const newArray=[...newBorderNames]
+           newArray.push(el)
+           newBorderNames=newArray
+           console.log ('estoy en setName')
+           console.log(newBorderNames)
+           setBorderNames(newBorderNames)
+        }
+        console.log(country.borders)
+         country.borders?.map(el=>
+            getData('alpha/' + el)
+            .then(res=>res[0].name.common)
+            .then(res=>setName(res))
+            )       
+     },[country])
 
 
     if (isLoading) return <Loading />
@@ -117,11 +134,11 @@ export function CountryDetail() {
                             <div className="country-info-borders">
                                 <p className={`country-data ${darkMode ? 'country-data-dark-mode' : ''}`}>
                                     <strong>Border Countries: </strong></p>
-                                {borders?.map((el, i) => {
+                                {borderNames?.map((el, i) => {
                                     return (
                                         <Button className={darkMode ? 'button-dark-mode' : ''}
                                             key={el}
-                                            onClick={() => { navigate('/country/' + el) }}
+                                            onClick={() => { navigate('/country/' + country.borders[i]) }}
                                         >{el}</Button>
                                     )
                                 })
