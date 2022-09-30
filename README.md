@@ -60,8 +60,13 @@ Building this project helped me to learn:
 ## Screenshots
 
 [![detail-country-apirest.png](https://i.postimg.cc/NjSGXC9B/detail-country-apirest.png)](https://postimg.cc/k2Nd3cvp)
+</br>
+
 [![homepage-mobile-apirest.png](https://i.postimg.cc/ydzVQJyG/homepage-mobile-apirest.png)](https://postimg.cc/QB0GVdPg)
+</br>
+
 [![detail-country-mobile-apirest.png](https://i.postimg.cc/SK9SfLC8/detail-country-mobile-apirest.png)](https://postimg.cc/HJp1pySs)
+</br>
 
 ## Author
 
