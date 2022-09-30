@@ -1,6 +1,6 @@
 # Countries of the world
 
-[homepage-countries-apirest.png](https://postimg.cc/TL18bXMz)
+[![homepage-countries-apirest.png](https://i.postimg.cc/KzrmdZ98/homepage-countries-apirest.png)](https://postimg.cc/TL18bXMz)
 
 
 ## Table of contents
@@ -28,7 +28,7 @@ This is a solution to the [REST Countries API with color theme switcher challeng
 
 ## Live site
 
-- Live Site URL: [Add live site URL here](https://your-live-site-url.com)
+- [Countries of the world demo](https://countries-of-the-world-atc.netlify.app/)
 <!-- - Solution URL: [Add solution URL here](https://your-solution-url.com) -->
 
 
@@ -59,9 +59,9 @@ Building this project helped me to learn:
 
 ## Screenshots
 
-[detail-country-apirest.png](https://postimg.cc/k2Nd3cvp)
-[homepage-mobile-apirest.png](https://postimg.cc/QB0GVdPg)
-[detail-country-mobile-apirest.png](https://postimg.cc/HJp1pySs)
+[![detail-country-apirest.png](https://i.postimg.cc/NjSGXC9B/detail-country-apirest.png)](https://postimg.cc/k2Nd3cvp)
+[![homepage-mobile-apirest.png](https://i.postimg.cc/ydzVQJyG/homepage-mobile-apirest.png)](https://postimg.cc/QB0GVdPg)
+[![detail-country-mobile-apirest.png](https://i.postimg.cc/SK9SfLC8/detail-country-mobile-apirest.png)](https://postimg.cc/HJp1pySs)
 
 ## Author
 
