@@ -9,7 +9,7 @@
 - [Live site](#live-site)
 - [Built with](#built-with)
 - [What I learned](#what-i-learned)
-- [Some views](#some-views)
+- [Screenshots](#screenshots)
 - [Author](#author)
   
 
